@@ -8,7 +8,7 @@
 
     <div class="header" ref="section-1">
       <div class="header-main">
-        <img class="header-main-logo" src="/static/img/logo.png">
+        <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">ВЫ строите, МЫ продвигаем и продаем. </div>
         <div class="header-main-about">Мы находимся в <div>Алматы</div>, но работаем по всему Казахстану <div>удаленно,</div> или выезжая к клиенту в другой город. </div>
         <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
@@ -26,7 +26,7 @@
         <div class="form-title">Получите консультацию у специалистов нашей компании</div>
         <div class="form-arrow"></div>
         <div class="form-content">
-          <img class="form-content-bg" src="/static/img/form.png">
+          <img class="form-content-bg" src="static/img/form.png">
           <label for="i0" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input v-model="modal0" id="i0" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
           <label for="i1" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input v-model="modal1" id="i1" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
           <div class="button form-content-button">
@@ -47,7 +47,7 @@
             <router-link :to="task.link" class="more body-section-row-first-more">
               <div class="more-bg"></div>
               <div class="more-name">Подробнее</div>
-              <img class="more-img" :src="'/static/img/task_' + i + '.png'">
+              <img class="more-img" :src="'static/img/task_' + i + '.png'">
             </router-link>
             
           </div>
@@ -60,7 +60,7 @@
       <div class="body-section" ref="section-4">
         <div class="body-section-title">СЕЙЧАС МЫ ПРОДВИГАЕМ И ПРОДАЕМ</div>
           <div class="body-section-row sale" :class="{'reverse': i % 2 !== 0}" v-for="(sale, i) in sales">
-            <img class="body-section-row-img" :src="'/static/img/sale_' + i + '.png'">
+            <img class="body-section-row-img" :src="'static/img/sale_' + i + '.png'">
             <div class="body-section-row-name">{{sale}}</div>
 
           </div>
@@ -70,7 +70,7 @@
 
         <div class="body-section-title">Почему эффективнее передать отдел продаж и маркетинга на аутсорсинг?</div>
         <div class="body-section-row">
-          <div class="body-section-row-name quote"><img src="/static/img/quotes.svg">- Экономия бюджета, сил и времени.<img src="/static/img/quotes.svg"></div>
+          <div class="body-section-row-name quote"><img src="static/img/quotes.svg">- Экономия бюджета, сил и времени.<img src="static/img/quotes.svg"></div>
         </div>
 
       </div>
@@ -80,7 +80,7 @@
         <div class="form-title">Получите консультацию у специалистов нашей компании</div>
         <div class="form-arrow"></div>
         <div class="form-content">
-          <img class="form-content-bg" src="/static/img/form.png">
+          <img class="form-content-bg" src="static/img/form.png">
           <label for="i2" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input v-model="modal0" id="i2" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
           <label for="i3" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input v-model="modal1" id="i3" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
           <div class="button form-content-button">
@@ -95,15 +95,15 @@
 
         <div class="body-section-title">МЫ ГОРДИМСЯ СВОЕЙ РАБОТОЙ </div>
           <div class="body-section-row work" :class="{'reverse': i % 2 !== 0, 'h500': i === 1}" v-for="(work, i) in works">
-            <img class="body-section-row-bg" :src="'/static/img/work_' + i + '.png'" v-if="i !== 1">
+            <img class="body-section-row-bg" :src="'static/img/work_' + i + '.png'" v-if="i !== 1">
             <div class="body-section-row-yellow">
               <div class="body-section-row-yellow-title">{{work.title}}</div>
-            <img class="body-section-row-bg" :src="'/static/img/work_' + i + '.png'" v-if="i === 1">
+            <img class="body-section-row-bg" :src="'static/img/work_' + i + '.png'" v-if="i === 1">
               <div class="body-section-row-yellow-about">{{work.about}}</div>
             </div>
-            <img class="body-section-row-nasa_img" src="/static/img/nasa_bg.svg" v-if="work.nasa">
+            <img class="body-section-row-nasa_img" src="static/img/nasa_bg.svg" v-if="work.nasa">
             <div class="body-section-row-nasa" v-if="work.nasa">
-              <img class="body-section-row-nasa-img" src="/static/img/NASA.png">
+              <img class="body-section-row-nasa-img" src="static/img/NASA.png">
               <div class="body-section-row-nasa-title">{{work.nasa}}</div>
             </div>
           </div>
@@ -115,9 +115,9 @@
           <div class="body-section-row-figure"></div>
           <div class="slider body-section-row-slider">
             <div class="slider-slide" :class="checkSliderClass(i)" @click="nextSlide(checkSliderType(i))"v-for="i in 10">
-              <div class="slider-slide-text"><img src="/static/img/quotes.svg">
+              <div class="slider-slide-text"><img src="static/img/quotes.svg">
                 <div>dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                <img src="/static/img/quotes.svg"></div>
+                <img src="static/img/quotes.svg"></div>
               <div class="slider-slide-author">
                 <div class="slider-slide-author-ava"><img src=""></div>
                 <div class="slider-slide-author-info">

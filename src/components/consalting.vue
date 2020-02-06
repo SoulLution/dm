@@ -7,12 +7,12 @@
     </div>
 
     <div class="header">
-      <img class="header-bg" src="/static/img/header_bg_3.png">
+      <img class="header-bg" src="static/img/header_bg_3.png">
       <div class="header-main">
-        <img class="header-main-logo" src="/static/img/logo.png">
+        <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">Консалтинг. Мы предоставляем все услуги для Застройщиков: </div>
         <div class="header-main-name">- от анализа «Что строить и где?»- нейминга нового ЖК и продвижения его выхода на рынок - до решения узких и специфических задач в виде внедрения автоматической системы  </div>
-        <div class="header-main-about"><img src="/static/img/quotes.svg">Динамического ценообразования .  <img src="/static/img/quotes.svg"></div>
+        <div class="header-main-about"><img src="static/img/quotes.svg">Динамического ценообразования .  <img src="static/img/quotes.svg"></div>
         <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
       </div>
     </div>
@@ -21,7 +21,7 @@
       
       <div class="body-section">
 	      <div class="body-section-row col">
-          <img class="body-section-row-min_img" src="/static/img/0_sec.svg">
+          <img class="body-section-row-min_img" src="static/img/0_sec.svg">
           <div class="body-section-row-abouter">
             <div class="body-section-row-abouter-sentence" v-for="up in helpes.up"><div :class="{'bold': checkCaps(word)}" v-for="word in up">{{word}}</div></div>
           </div>
@@ -37,16 +37,16 @@
         <div class="body-section-title">Программа курса ДМ скул: </div>
         <div class="body-section-row programm" :class="{'reverse': i % 2 !== 0}" v-for="(program, i) in programs">
           <div class="body-section-row-about">
-            <div class="body-section-row-about-quotes"><img src="/static/img/quotes.svg">{{program.quote}}<img src="/static/img/quotes.svg"></div>
+            <div class="body-section-row-about-quotes"><img src="static/img/quotes.svg">{{program.quote}}<img src="static/img/quotes.svg"></div>
             <div class="body-section-row-about-comment"><div v-for="com in program.comment">{{com}}</div></div>
           </div>
-          <div class="body-section-row-img"><img :src="'/static/img/program_' + i + '.png'"></div>
+          <div class="body-section-row-img"><img :src="'static/img/program_' + i + '.png'"></div>
         </div>
       </div>
 
       <div class="body-section">
         <div class="body-section-title __yellow">
-          <img class="body-section-title-img" src="/static/img/gift.svg">
+          <img class="body-section-title-img" src="static/img/gift.svg">
           <div>Бонус</div> урок: 
         </div>
         <div class="body-section-row text">
@@ -97,7 +97,7 @@
             <div class="more body-section-row-first-more" v-if="i === 0">
               <div class="more-bg"></div>
               <div class="more-name">ПЕРЕЙТИ НА САЙТ КОМПАНИИ</div>
-              <img class="more-img" src="/static/img/task_2.png">
+              <img class="more-img" src="static/img/task_2.png">
             </div>
           </div>
           <div class="body-section-row-second"><div class="wave"><div v-for="i in 4"></div></div></div>
@@ -107,12 +107,12 @@
       <div class="body-section">
         <div class="body-section-title">НАМ НУЖНЫ СВЕЖИЕ КАДРЫ!</div>
         <div class="body-section-pre_title">Пройди обучение и получи работу в наших филиалах: </div>
-        <img class="body-section-map" src="/static/img/Map.png">
+        <img class="body-section-map" src="static/img/Map.png">
       </div>
 
       <div class="body-section">
         <div class="body-section-row student" :class="{'reverse': i % 2 !== 0}" v-for="(student, i) in students">
-            <img class="body-section-row-img_student" :src="'/static/img/student_' + i + '.png'">
+            <img class="body-section-row-img_student" :src="'static/img/student_' + i + '.png'">
             <div class="body-section-row-name">{{student}}</div>
           </div>
       </div>
@@ -126,7 +126,7 @@
 
 <script>
   import Vue from "vue"
-  import map from "../../static/img/Map.png"
+  // import map from "../../static/img/Map.png"
   export default {
     data: () => {
       return {

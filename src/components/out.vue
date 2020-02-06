@@ -7,11 +7,11 @@
     </div>
 
     <div class="header">
-      <img class="header-bg" src="/static/img/header_bg_2.png">
+      <img class="header-bg" src="static/img/header_bg_2.png">
       <div class="header-main">
-        <img class="header-main-logo" src="/static/img/logo.png">
+        <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">Почему эффективнее передать отдел продаж и маркетинга на аутсорсинг? </div>
-        <div class="header-main-about"><img src="/static/img/quotes.svg">- Экономия бюджета, сил и времени. <img src="/static/img/quotes.svg"></div>
+        <div class="header-main-about"><img src="static/img/quotes.svg">- Экономия бюджета, сил и времени. <img src="static/img/quotes.svg"></div>
         <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
         <div class="header-main-name">Вы платите только за результат в виде сделок. </div>
       </div>
@@ -23,7 +23,7 @@
       
       <div class="body-section">
 	      <div class="body-section-row" v-for="(row, i) in data">
-		      <img class="body-section-row-img" :src="'/static/img/' + i + '_sec.svg'">
+		      <img class="body-section-row-img" :src="'static/img/' + i + '_sec.svg'">
 
 		      <div class="body-section-row-text">
 			      <div class="body-section-row-text-rows" v-for="val in row.values">
