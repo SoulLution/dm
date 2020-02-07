@@ -1,10 +1,10 @@
 <template>
   <div class="main">
 
-    <div class="pagination">
+    <!-- <div class="pagination">
       <div class="pagination-line"></div>
       <div class="pagination-circle" v-for="i in 8"></div>
-    </div>
+    </div> -->
 
     <div class="header">
       <img class="header-bg" src="static/img/header_bg_3.png">
