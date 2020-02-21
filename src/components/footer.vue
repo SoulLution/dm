@@ -16,11 +16,11 @@
       
     </div>
 
-    <div class="footer-phone">8 777 777 77 77 </div>
-    <div class="footer-mail">@dm-development.kz</div>
+    <a href="tel:87070000092" class="footer-phone">8 707 000 00 92 </a>
+    <a href="mailto:help@dm-development.kz" class="footer-mail">help@dm-development.kz</a>
     <div class="footer-address">
       <img src="static/img/address.svg">
-      <div>Здесь будет адрес</div>
+      <a href="geo:43.2593064,76.9297241,15">г. Алматы, Достык 97 Б, 278 офис</a>
     </div>
     <div class="footer-coopyright">Copyright @dm.kz</div>
   </div>
@@ -77,7 +77,7 @@
       margin-bottom: 12px;
       &>img{
         position: absolute;
-        left: -40%;
+        left: -20%;
       }
       &>div{
         width: auto;

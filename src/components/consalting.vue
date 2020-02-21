@@ -521,7 +521,6 @@
                 margin-left: 5px;
                 &:first-child{
                   color: $yellow;
-                  margin-left: unset;
                 }
               }
             }
