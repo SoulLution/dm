@@ -382,7 +382,7 @@
     }
     &-main{
       z-index: 1;
-      height: 65%;
+      // height: 65%;
       background-color: $grey;
       justify-content: space-between;
       padding-top: 50px;
