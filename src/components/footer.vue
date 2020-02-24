@@ -6,8 +6,8 @@
       <div class="form-arrow"></div>
       <div class="form-content">
         <img class="form-content-bg" src="static/img/form.png">
-        <label for="i4" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input required v-model="modal0" id="i4" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
-        <label for="i5" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input required v-model="modal1" id="i5" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
+        <label for="i4" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input autocomplete="off" required v-model="modal0" id="i4" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
+        <label for="i5" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input autocomplete="off" required v-model="modal1" id="i5" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
         <label for="submit-footer" class="button form-content-button">
           <div class="button-bg"></div>
           <input type="submit" id="submit-footer" class="button-title" value="Получить консультацию" @click="sendEmail">
@@ -40,18 +40,24 @@
         e.preventDefault();
         let data = {
           name: this.modal0,
-          phone: this.modal1
+          phone: this.modal1,
+          _replyto: 'help@dm-development.kz'
         }
-        data = this.toFormData(data);
+        // data = this.toFormData(data);
+        this.$emit('popupsend', undefined)
         this.$axios
          .post(
-              "mail.php",
+              "https://formspree.io/mzbgbolj",
               data
          )
          .then(res => {
              this.modal0 = ''
              this.modal1 = ''
-         });
+             this.$emit('popupsend', true)
+         })
+         .catch(err => {
+            this.$emit('popupsend', false)
+         })
          return false
       },
       toFormData(obj) {

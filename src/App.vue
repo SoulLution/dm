@@ -10,8 +10,17 @@
 		  </router-link>
 		  <div class="navigation-link nope" @click="goDown()">Оставить заявку</div>
   	</div>
-    <router-view/>
-    <v-footer />
+
+  	<div class="popup" v-if="popup">
+	  	<div class="popup-bg" @click="type !== undefined ? popup = false : ''"></div>
+	  	<div class="popup-content">
+		  	<div class="popup-content-message" :class="{'success': type === true,'error': type === false,'await': type === undefined}">{{message}}</div>
+		  	<div class="popup-content-button" @click="type !== undefined ? popup = false : ''">Закрыть</div>
+	  	</div>
+  	</div>
+
+    <router-view @popupsend="popupMessage" />
+    <v-footer  @popupsend="popupMessage" />
   </div>
 </template>
 
@@ -24,6 +33,9 @@ export default {
   	return{
   		open: false,
   		touch: 0,
+  		type: undefined,
+  		popup: false,
+  		message: 'Ваш запрос обрабатывается, в ближайшее время с вами свяжется консультант.',
   		data:[
   			{
   				name: 'Главная',
@@ -56,6 +68,16 @@ export default {
 		}
 	},
   methods:{
+  	popupMessage(e){
+  		this.type = e
+  		if(e === false)
+  			this.message = 'Ой! Что-то пошло не так, попробуйте повторить запрос позже.'
+  		else if(e === true)
+  			this.message = 'Ваш запрос обрабатывается, в ближайшее время с вами свяжется консультант.'
+  		else
+  			this.message = 'Пожалуйста, подождите, пока ваш запрос отправится.'
+  		this.popup = true
+  	},
   	goDown(){
   		window.scrollTo({
         top: document.scrollingElement.clientHeight + document.scrollingElement.scrollHeight,
@@ -71,6 +93,55 @@ export default {
 	.main{
 		z-index: 1;	
 	}
+
+  	.popup{
+  		position: fixed;
+  		top: 0;
+  		left: 0;
+  		height: 100vh;
+  		width: 100vw;
+  		justify-content: center;
+  		align-items: center;
+  		z-index: 20;
+	  	&-bg{
+	  		position: absolute;
+	  		height: 100%;
+	  		width: 100%;
+	  		background-color: #00000080;
+	  	}
+	  	&-content{
+	  		border-radius: 10px;
+	  		background-color: $white;
+	  		width: 80%;
+	  		padding: 2.5%;
+	  		max-width: 400px;
+		  	&-message{
+		  		color: $main;
+		  		font-weight: bold;
+		  		font-size: 16px;
+		  		line-height: 20px;
+		  		margin-bottom: 5%;
+		  		&.success{
+		  			color: #00ca1c;
+		  		}
+		  		&.error{
+		  			color: #ff2b2b;
+		  		}
+		  		&.await{
+		  			color: #888888;
+		  		}
+		  	}
+		  	&-button{
+		  		color: $main;
+		  		border: 1px solid $main;
+		  		border-radius: 50px;
+		  		cursor: pointer;
+		  		width: auto;
+		  		padding: 12px 32px;
+		  	}
+		  }
+		}
+
   .navigation{
   	position: fixed;
   	top: 50px;
