@@ -7,7 +7,7 @@
     </div> -->
 
     <div class="header">
-      <img class="header-bg" src="static/img/header_bg_3.png">
+      <img class="header-bg" src="static/img/header_bg_3.png" style="display: none">
       <div class="header-main">
         <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">Консалтинг. Мы предоставляем все услуги для Застройщиков: </div>
@@ -217,6 +217,10 @@
   @import '@/assets/main.scss';
   .header{
     min-height: 100vh;
+    background-image: url('/static/img/header_bg_3.png');
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    background-attachment: fixed !important;
     justify-content: flex-start;
     // max-height: 900px;
     z-index: 1;

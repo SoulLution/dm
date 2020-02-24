@@ -7,7 +7,7 @@
     </div> -->
 
     <div class="header">
-      <img class="header-bg" src="static/img/header_bg_2.png">
+      <img class="header-bg" src="static/img/header_bg_2.png" style="display: none;">
       <div class="header-main">
         <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">Почему эффективнее передать отдел продаж и маркетинга на аутсорсинг? </div>
@@ -214,8 +214,12 @@
 <style lang="scss" scoped>
   @import '@/assets/main.scss';
   .header{
-    height: 100vh;
-    justify-content: flex-start;
+    min-height: 100vh;
+    justify-content: center;
+    background-image: url('/static/img/header_bg_2.png');
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+    background-attachment: fixed !important;
     &-bg{
     	position: absolute;
     	width: 100%;

@@ -92,6 +92,7 @@ export default {
   @import '@/assets/main.scss';
 	.main{
 		z-index: 1;	
+		margin-top: 30px;
 	}
 
   	.popup{
@@ -144,17 +145,23 @@ export default {
 
   .navigation{
   	position: fixed;
-  	top: 50px;
-  	left: 50px;
-  	width: auto;
+  	background-color: $main;
+  	top: 0;
+  	padding: 15px 50px;
   	flex-direction: row;
+  	justify-content: flex-start;
   	z-index: 5;
+  	&>.close{
+  		display: none;
+  	}
   	&-link{
   		margin: 0 15px;
   		font-weight: 500;
 			font-size: 22px;
 			line-height: 26px;
 			cursor: pointer;
+			width: auto;
+	  	align-items: flex-start;
 			&.nope{
 				display: none;
 			}
@@ -165,6 +172,9 @@ export default {
   	}
   }
   @media screen and (max-width: 668px){
+  	.main{
+			margin-top: 0;
+		}
   	.burger{
   		height: 50px;
   		width: 50px;
@@ -173,6 +183,8 @@ export default {
   		top: 20px;
   		left: 16px;
   		cursor: pointer;
+  		background-color: $main;
+  		border-radius: 50%;
   	}
   	.burger>div, .burger>div:after, .burger>div:before{
   		content: "";
@@ -191,6 +203,7 @@ export default {
 			top: 8px !important;
 		}
   	.close{
+  		display: flex !important;
   		position: absolute;
   		top: 20px;
   		right: 24px;
@@ -215,6 +228,7 @@ export default {
 	  	width: 80%;
 	  	left: -100%;
 	  	transition: 0.3s;
+	  	padding-left: 16px;
 	  	height: 100vh;
 	  	background-color: $white;
 	  	flex-direction: column;

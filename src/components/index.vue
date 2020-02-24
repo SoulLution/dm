@@ -76,7 +76,7 @@
 
       </div>
 
-      <form class="form" style="transform: rotate(-3deg)" @submint.prevent="sendEmail">
+      <form class="form" @submint.prevent="sendEmail">
         <div class="form-bg"></div>
         <div class="form-title">Получите консультацию у специалистов нашей компании</div>
         <div class="form-arrow"></div>
