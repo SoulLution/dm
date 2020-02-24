@@ -218,7 +218,7 @@
   .header{
     min-height: 100vh;
     justify-content: flex-start;
-    max-height: 900px;
+    // max-height: 900px;
     z-index: 1;
     &-bg{
     	position: absolute;

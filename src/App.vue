@@ -23,6 +23,7 @@ export default {
   data(){
   	return{
   		open: false,
+  		touch: 0,
   		data:[
   			{
   				name: 'Главная',
@@ -39,6 +40,21 @@ export default {
   		]
   	}
   },
+  mounted(){
+		document.body.ontouchstart = e => {
+			this.touch = e.touches[0].clientX
+		}
+		document.body.ontouchend = e => {
+			let x = e.changedTouches[0].clientX, index = 0
+
+      if(this.touch - x > (document.body.clientWidth/2))
+        this.open = false
+      else if(x -this.touch > (document.body.clientWidth/2))
+        this.open = true
+
+      this.touch = 0;
+		}
+	},
   methods:{
   	goDown(){
   		window.scrollTo({

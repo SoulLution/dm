@@ -26,6 +26,14 @@
 		      <img class="body-section-row-img" :src="'static/img/' + i + '_sec.svg'">
 
 		      <div class="body-section-row-text">
+            <div class="body-section-row-text-rows mob" v-for="val in row.values">
+              <div class="body-section-row-text-rows-title">{{val.first}}<div>{{val.div_f}}</div></div>
+            </div>
+            <div class="body-section-row-text-rows mob" v-for="val in row.values">
+              <div class="body-section-row-text-rows-abouter">
+                <div v-for="prof in val.profs">{{prof}}</div>
+              </div>
+            </div>
 			      <div class="body-section-row-text-rows" v-for="val in row.values">
 				      <div class="body-section-row-text-rows-title">{{val.first}}<div>{{val.div_f}}</div></div>
 				      <div class="body-section-row-text-rows-abouter">
@@ -279,6 +287,9 @@
 	      &-text{
 		      &-rows{
 		        align-items: flex-start;
+            &.mob{
+              display: none;
+            }
 			      &-title{
 			      	justify-content: flex-start;
 							font-weight: 800;
@@ -410,11 +421,15 @@
 	      &-text{
 	      	align-items: flex-start;
 		      &-rows{
+            display: none;
+            &.mob{
+              display: flex;
+            }
 			      &-title{
 							font-size: 25px;
 							line-height: 150%;
-		      		// position: absolute;
-		      		width: 60%;
+		      		align-items: flex-end;
+		      		width: 90%;
 			      }
 			      &-abouter{
 			      	flex-direction: column;
