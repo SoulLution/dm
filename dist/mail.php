@@ -2,7 +2,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-$to = 'faun1605@gmail.com';
+$to = 'help@dm-development.kz';
 
 $name = $_POST['name'];
 $phone = $_POST['phone'];
@@ -21,7 +21,7 @@ $message = '
 </html>
 ';
 
-$headers = 'Content-type: text/html; charset=iso-8859-1'. "\r\n" .'From: <help@dm-development.kzz>';
+$headers = 'Content-type: text/html; charset=iso-8859-1'. "\r\n" .'From: <help@dm-development.kz>';
 mail($to, $subject, $message);
 if(mail($to, $subject, $message, $headers))
 {

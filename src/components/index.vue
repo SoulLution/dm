@@ -61,6 +61,7 @@
         <div class="body-section-title">СЕЙЧАС МЫ ПРОДВИГАЕМ И ПРОДАЕМ</div>
           <div class="body-section-row sale" :class="{'reverse': i % 2 !== 0}" v-for="(sale, i) in sales">
             <img class="body-section-row-img" :src="'static/img/sale_' + i + '.png'">
+            <img class="body-section-row-img mob" :src="'static/img/image ' + i + '.png'">
             <div class="body-section-row-name">{{sale}}</div>
 
           </div>
@@ -114,15 +115,15 @@
         <div class="body-section-row">
           <div class="body-section-row-figure"></div>
           <div class="slider body-section-row-slider">
-            <div class="slider-slide" :class="checkSliderClass(i)" @click="nextSlide(checkSliderType(i))"v-for="i in 10">
+            <div class="slider-slide" :class="checkSliderClass(i)" @click="nextSlide(checkSliderType(i))"v-for="(comment, i) in comments">
               <div class="slider-slide-text"><img src="static/img/quotes.svg">
-                <div>dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                <div>{{comment.text}}</div>
                 <img src="static/img/quotes.svg"></div>
               <div class="slider-slide-author">
-                <div class="slider-slide-author-ava"><img src=""></div>
+                <div class="slider-slide-author-ava"><img :src="comment.img"></div>
                 <div class="slider-slide-author-info">
-                  <div class="slider-slide-author-name">- Каирбулат Жангалиев </div>
-                  <div class="slider-slide-author-about">Генеральный директор строительной компании «Integrated Solutions Group»</div>
+                  <div class="slider-slide-author-name">- {{comment.name}} </div>
+                  <div class="slider-slide-author-about">{{comment.who}}</div>
                 </div>
               </div>
             </div>
@@ -171,7 +172,7 @@
       return {
         select_index: null,
         select_focus: false,
-        current_slide: 9,
+        current_slide: 1,
         select: ['Крякозябра','Бронтозябра','Синий','Ну ты понял суть:)'],
         form0: false,
         form1: false,
@@ -179,6 +180,56 @@
         modal1: '',
         page: 1,
         top: 0,
+        comments: [
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+          {
+            img: '',
+            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            name: 'Каирбулат Жангалиев',
+            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+          },
+        ],
         tasks: [
           {
             title: 'Аутсорсинг',
@@ -266,17 +317,18 @@
     created(){
       window.onscroll = () => {
         let height = document.scrollingElement.clientHeight
-        for(let i = 8; i > 0 ; i--){
-          let top = this.$refs['section-'+i].getBoundingClientRect().top
-          let elem = top
-          if(elem <= 0){
-            this.page = i;
-            this.top = height + document.scrollingElement.scrollTop;
-            this.top = (this.top / height - 1) * 100
-            break;
+        for(let i = 8; i > 0 ; i--)
+          if(this.$refs['section-'+i]){
+            let top = this.$refs['section-'+i].getBoundingClientRect().top
+            let elem = top
+            if(elem <= 0){
+              this.page = i;
+              this.top = height + document.scrollingElement.scrollTop;
+              this.top = (this.top / height - 1) * 100
+              break;
+            }
+            if(i === 1) this.top = -1;
           }
-          if(i === 1) this.top = -1;
-        }
       }
     },
     methods: {
@@ -307,20 +359,21 @@
       },
       nextSlide(index){
         this.current_slide += index;
-        if(this.current_slide > 10) this.current_slide = 1
-        if(this.current_slide < 1) this.current_slide = 10
+        if(this.current_slide > this.comments.length-1) this.current_slide = 1
+        if(this.current_slide < 1) this.current_slide = this.comments.length-1
       },
       checkSliderType(index){
         let type
 
         type = this.current_slide - 1
-        if( type <= 0 ) type += 10
+
+        if( type <= 0 ) type += this.comments.length-1
         if(index === type)
           type = -1
         else{
           for(let i = 1; i < 4; i++){
             type = this.current_slide + i
-            if( type > 10 ) type -= 10
+            if( type > this.comments.length-1 ) type -= this.comments.length-1
             if(index === type){
               type = i
               break;
@@ -336,13 +389,13 @@
         let end, type
 
         type = this.current_slide - 1
-        if( type <= 0 ) type += 10
+        if( type <= 0 ) type += this.comments.length-1
         if(index === type)
           type = 0
         else{
           for(let i = 1; i < 4; i++){
             type = this.current_slide + i
-            if( type > 10 ) type -= 10
+            if( type > this.comments.length-1 ) type -= this.comments.length-1
             if(index === type){
               type = i
               break;
@@ -569,6 +622,9 @@
         &-img{
           padding: 1rem;
           max-width: 50%;
+          &.mob{
+            display: none;
+          }
         }
         &-name{
           padding: 0 65px;
@@ -884,6 +940,10 @@
         &-img{
           width: 50%;
           padding: 16px;
+          display: none;
+          &.mob{
+            display: flex;
+          }
         }
         &-name{
           font-size: 20px;

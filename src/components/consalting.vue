@@ -38,6 +38,7 @@
         <div class="body-section-row programm" :class="{'reverse': i % 2 !== 0}" v-for="(program, i) in programs">
           <div class="body-section-row-about">
             <div class="body-section-row-about-quotes"><img src="static/img/quotes.svg">{{program.quote}}<img src="static/img/quotes.svg"></div>
+            <div class="body-section-row-img mob"><img :src="'static/img/program_' + i + '.png'"></div>
             <div class="body-section-row-about-comment"><div v-for="com in program.comment">{{com}}</div></div>
           </div>
           <div class="body-section-row-img"><img :src="'static/img/program_' + i + '.png'"></div>
@@ -104,13 +105,13 @@
         </div>
       </div>
 
-      <div class="body-section">
+      <div class="body-section" v-if="false">
         <div class="body-section-title">НАМ НУЖНЫ СВЕЖИЕ КАДРЫ!</div>
         <div class="body-section-pre_title">Пройди обучение и получи работу в наших филиалах: </div>
         <img class="body-section-map" src="static/img/Map.png">
       </div>
 
-      <div class="body-section">
+      <div class="body-section" v-if="false">
         <div class="body-section-row student" :class="{'reverse': i % 2 !== 0}" v-for="(student, i) in students">
             <img class="body-section-row-img_student" :src="'static/img/student_' + i + '.png'">
             <div class="body-section-row-name">{{student}}</div>
@@ -530,6 +531,9 @@
             height: auto;
             padding: 35px 0 5px;
             margin-right: 70px;
+            &.mob{
+              display: none;
+            }
             &:after{
               content: "";
               width: 100%;
@@ -561,15 +565,18 @@
               text-align: left;
               align-items: flex-start;
               margin: 50px 0;
+              z-index: 1;
             }
             &-more{
               height: 60px;
               width: auto;
+              z-index: 0;
               &>div{
                 white-space: nowrap;
               }
               &>img{
                 margin-top: -66%;
+                z-index: -1;
               }
             }
           }
@@ -719,6 +726,7 @@
         &-about{
           padding: unset;
           &-quotes{
+            width: 100%;
             &>img{
               &:first-child{
                 top: 100%;
@@ -734,11 +742,17 @@
           left: unset;
         }
         &-img{
-          margin: 0 !important;
-          width: 80%;
+          margin: 2.5% 0 15% !important;
+          width: 100%;
           margin-bottom: 16px;
+          display: none;
+          &.mob{
+            display: flex;
+          }
           &:after{
-            left: -15%;
+            width: 80%;
+            left: unset;
+            margin-left: -5%;
           }
         }
         &-title{

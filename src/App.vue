@@ -39,9 +39,6 @@ export default {
   		]
   	}
   },
-  created(){
-  	console.log(this.$router.history.current.fullPath)
-  },
   methods:{
   	goDown(){
   		window.scrollTo({
