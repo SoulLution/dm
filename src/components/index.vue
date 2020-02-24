@@ -21,21 +21,21 @@
 
     <div class="body">
       
-      <div class="form" ref="section-2">
+      <form class="form"ref="section-2" @submint.prevent="sendEmail">
         <div class="form-bg"></div>
         <div class="form-title">Получите консультацию у специалистов нашей компании</div>
         <div class="form-arrow"></div>
         <div class="form-content">
           <img class="form-content-bg" src="static/img/form.png">
-          <label for="i0" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input v-model="modal0" id="i0" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
-          <label for="i1" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input v-model="modal1" id="i1" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
-          <div class="button form-content-button">
+          <label for="i0" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input required v-model="modal0" id="i0" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
+          <label for="i1" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input required v-model="modal1" id="i1" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
+          <label for="submit-0" class="button form-content-button">
             <div class="button-bg"></div>
-            <div class="button-title">Получить консультацию</div>
-          </div>
+            <input type="submit" id="submit-0" class="button-title" value="Получить консультацию" @click="sendEmail">
+          </label>
         </div>
         
-      </div>
+      </form>
 
       <div class="body-section" ref="section-3">
         <div class="body-section-title">какие  задачи мы решаем?</div>
@@ -75,7 +75,7 @@
 
       </div>
 
-      <div class="form" style="transform: rotate(-3deg)">
+      <form class="form" style="transform: rotate(-3deg)" @submint.prevent="sendEmail">
         <div class="form-bg"></div>
         <div class="form-title">Получите консультацию у специалистов нашей компании</div>
         <div class="form-arrow"></div>
@@ -83,13 +83,13 @@
           <img class="form-content-bg" src="static/img/form.png">
           <label for="i2" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input v-model="modal0" id="i2" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
           <label for="i3" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input v-model="modal1" id="i3" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
-          <div class="button form-content-button">
+          <label for="submit-1" class="button form-content-button">
             <div class="button-bg"></div>
-            <div class="button-title">Получить консультацию</div>
-          </div>
+            <input type="submit" id="submit-1" class="button-title" value="Получить консультацию" @click="sendEmail">
+          </label>
         </div>
         
-      </div>
+      </form>
 
       <div class="body-section" ref="section-6">
 
@@ -264,22 +264,39 @@
       next()
     },
     created(){
-        window.onscroll = () => {
-          let height = document.scrollingElement.clientHeight
-          for(let i = 8; i > 0 ; i--){
-            let top = this.$refs['section-'+i].getBoundingClientRect().top
-            let elem = top
-            if(elem <= 0){
-              this.page = i;
-              this.top = height + document.scrollingElement.scrollTop;
-              this.top = (this.top / height - 1) * 100
-              break;
-            }
-            if(i === 1) this.top = -1;
+      window.onscroll = () => {
+        let height = document.scrollingElement.clientHeight
+        for(let i = 8; i > 0 ; i--){
+          let top = this.$refs['section-'+i].getBoundingClientRect().top
+          let elem = top
+          if(elem <= 0){
+            this.page = i;
+            this.top = height + document.scrollingElement.scrollTop;
+            this.top = (this.top / height - 1) * 100
+            break;
           }
+          if(i === 1) this.top = -1;
         }
+      }
     },
     methods: {
+      sendEmail(e){
+        e.preventDefault();
+        let data = {
+          name: this.modal0,
+          phone: this.modal1
+        }
+        this.$axios
+         .post(
+              "mail.php",
+              data
+         )
+         .then(res => {
+             this.modal0 = ''
+             this.modal1 = ''
+         });
+         return false
+      },
       nextSlide(index){
         this.current_slide += index;
         if(this.current_slide > 10) this.current_slide = 1

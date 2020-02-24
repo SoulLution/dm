@@ -1,20 +1,20 @@
 <template>
   <div class="footer">
-    <div class="form">
+    <form class="form" @submint.prevent="sendEmail">
       <div class="form-bg"></div>
       <div class="form-title">Получите консультацию у специалистов нашей компании</div>
       <div class="form-arrow"></div>
       <div class="form-content">
         <img class="form-content-bg" src="static/img/form.png">
-        <label for="i4" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input v-model="modal0" id="i4" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
-        <label for="i5" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input v-model="modal1" id="i5" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
-        <div class="button form-content-button">
+        <label for="i4" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input required v-model="modal0" id="i4" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
+        <label for="i5" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input required v-model="modal1" id="i5" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
+        <label for="submit-footer" class="button form-content-button">
           <div class="button-bg"></div>
-          <div class="button-title">Получить консультацию</div>
-        </div>
+          <input type="submit" id="submit-footer" class="button-title" value="Получить консультацию" @click="sendEmail">
+        </label>
       </div>
       
-    </div>
+    </form>
 
     <a href="tel:87070000092" class="footer-phone">8 707 000 00 92 </a>
     <a href="mailto:help@dm-development.kz" class="footer-mail">help@dm-development.kz</a>
@@ -36,6 +36,23 @@
 			}
 		},
 		methods: {
+      sendEmail(e){
+        e.preventDefault();
+        let data = {
+          name: this.modal0,
+          phone: this.modal1
+        }
+        this.$axios
+         .post(
+              "mail.php",
+              data
+         )
+         .then(res => {
+             this.modal0 = ''
+             this.modal1 = ''
+         });
+         return false
+      },
       changeForm(index){
         if(this['form'+index]) 
           this['form'+index] = false
