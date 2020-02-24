@@ -286,6 +286,7 @@
           name: this.modal0,
           phone: this.modal1
         }
+        data = this.toFormData(data);
         this.$axios
          .post(
               "mail.php",
@@ -296,6 +297,13 @@
              this.modal1 = ''
          });
          return false
+      },
+      toFormData(obj){
+        let formData = new FormData();
+        for(let key in obj) {
+            formData.append(key, obj[key]);
+        }
+        return formData;
       },
       nextSlide(index){
         this.current_slide += index;

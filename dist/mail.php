@@ -2,11 +2,10 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-$to = 'help@dm-development.kz';
+$to = 'faun1605@gmail.com';
 
 $name = $_POST['name'];
 $phone = $_POST['phone'];
-$question = $_POST['question'];
 
 $subject = 'Заявка с сайта DM.kz';
 
@@ -22,7 +21,7 @@ $message = '
 </html>
 ';
 
-$headers = 'Content-type: text/html; charset=iso-8859-1'. "\r\n" .'From: <info@akh.kz>';
+$headers = 'Content-type: text/html; charset=iso-8859-1'. "\r\n" .'From: <help@dm-development.kzz>';
 mail($to, $subject, $message);
 if(mail($to, $subject, $message, $headers))
 {
