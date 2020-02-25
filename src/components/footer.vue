@@ -81,6 +81,7 @@
 <style lang="scss">
 	@import '@/assets/main.scss';
   .footer{
+    max-width: 1440px;
     background-color: $footer;
     padding: 50px 0 25px;
     overflow: hidden;

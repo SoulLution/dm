@@ -22,10 +22,12 @@
       <div class="body-section">
 	      <div class="body-section-row col">
           <img class="body-section-row-min_img" src="static/img/0_sec.svg">
+          
           <div class="body-section-row-abouter">
             <div class="body-section-row-abouter-sentence" v-for="up in helpes.up"><div :class="{'bold': checkCaps(word)}" v-for="word in up">{{word}}</div></div>
           </div>
           <div class="body-section-row-title"><div>{{helpes.title.div}}</div>{{helpes.title.second}}</div>
+          
           <div class="body-section-row-abouter">
             <div class="body-section-row-abouter-sentence" v-for="down in helpes.down"><div :class="{'bold': checkCaps(word)}" v-for="word in down">{{word}}</div></div>
           </div>
@@ -445,6 +447,8 @@
           &-abouter{
             flex-direction: row;
             justify-content: space-between;
+            animation: mover 20s linear infinite;
+            width: auto;
             &:nth-child(4){
               margin-left: -50%;
             }
@@ -681,6 +685,7 @@
           padding-top: 25%;
         }
         &.programm{
+          margin-top: 50px;
           flex-direction: column-reverse;
         }
         &.reverse{
@@ -773,6 +778,7 @@
           margin-left: 16px !important;
           align-items: flex-start;
           justify-content: flex-start;
+          animation: unset;
           &-sentence{
             align-items: flex-start;
             justify-content: flex-start;
@@ -796,5 +802,11 @@
         }
       }
     }
+  }
+
+  @keyframes mover {
+    from {left: -250%}
+    99% {display: none}
+    to {left: 170%}
   }
 </style>

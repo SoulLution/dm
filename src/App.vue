@@ -95,59 +95,60 @@ export default {
 		margin-top: 30px;
 	}
 
-  	.popup{
-  		position: fixed;
-  		top: 0;
-  		left: 0;
-  		height: 100vh;
-  		width: 100vw;
-  		justify-content: center;
-  		align-items: center;
-  		z-index: 20;
-	  	&-bg{
-	  		position: absolute;
-	  		height: 100%;
-	  		width: 100%;
-	  		background-color: #00000080;
+	.popup{
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		justify-content: center;
+		align-items: center;
+		z-index: 20;
+  	&-bg{
+  		position: absolute;
+  		height: 100%;
+  		width: 100%;
+  		background-color: #00000080;
+  	}
+  	&-content{
+  		border-radius: 10px;
+  		background-color: $white;
+  		width: 80%;
+  		padding: 2.5%;
+  		max-width: 400px;
+	  	&-message{
+	  		color: $main;
+	  		font-weight: bold;
+	  		font-size: 16px;
+	  		line-height: 20px;
+	  		margin-bottom: 5%;
+	  		&.success{
+	  			color: #00ca1c;
+	  		}
+	  		&.error{
+	  			color: #ff2b2b;
+	  		}
+	  		&.await{
+	  			color: #888888;
+	  		}
 	  	}
-	  	&-content{
-	  		border-radius: 10px;
-	  		background-color: $white;
-	  		width: 80%;
-	  		padding: 2.5%;
-	  		max-width: 400px;
-		  	&-message{
-		  		color: $main;
-		  		font-weight: bold;
-		  		font-size: 16px;
-		  		line-height: 20px;
-		  		margin-bottom: 5%;
-		  		&.success{
-		  			color: #00ca1c;
-		  		}
-		  		&.error{
-		  			color: #ff2b2b;
-		  		}
-		  		&.await{
-		  			color: #888888;
-		  		}
-		  	}
-		  	&-button{
-		  		color: $main;
-		  		border: 1px solid $main;
-		  		border-radius: 50px;
-		  		cursor: pointer;
-		  		width: auto;
-		  		padding: 12px 32px;
-		  	}
-		  }
-		}
+	  	&-button{
+	  		color: $main;
+	  		border: 1px solid $main;
+	  		border-radius: 50px;
+	  		cursor: pointer;
+	  		width: auto;
+	  		padding: 12px 32px;
+	  	}
+	  }
+	}
 
   .navigation{
+  	
   	position: fixed;
   	background-color: $main;
   	top: 0;
-  	padding: 15px 50px;
+  	padding: 15px 24px;
   	flex-direction: row;
   	justify-content: flex-start;
   	z-index: 5;
@@ -155,7 +156,7 @@ export default {
   		display: none;
   	}
   	&-link{
-  		margin: 0 15px;
+  		margin-right: 30px;
   		font-weight: 500;
 			font-size: 22px;
 			line-height: 26px;

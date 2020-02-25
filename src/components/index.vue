@@ -60,8 +60,9 @@
       <div class="body-section" ref="section-4">
         <div class="body-section-title">СЕЙЧАС МЫ ПРОДВИГАЕМ И ПРОДАЕМ</div>
           <div class="body-section-row sale" :class="{'reverse': i % 2 !== 0}" v-for="(sale, i) in sales">
-            <img class="body-section-row-img" :src="'static/img/sale_' + i + '.png'">
-            <img class="body-section-row-img mob" :src="'static/img/image ' + i + '.png'">
+            <div class="body-section-row-img" :style="{backgroundImage: 'url(/static/img/image_' + i + '.png)'}"></div>
+            <img class="body-section-row-img" :src="'static/img/sale_' + i + '.png'" style="display: none">
+            <img class="body-section-row-img mob" :src="'static/img/image_' + i + '.png'">
             <div class="body-section-row-name">{{sale}}</div>
 
           </div>
@@ -547,8 +548,8 @@
       margin: 100px 0;
       &-title{
         align-items: flex-start;
-        width: calc(100% - 140px);
-        margin: 0 70px 100px 70px;
+        width: calc(100% - 48px);
+        margin: 0 24px 100px 24px;
         font-weight: 800;
         font-size: 80px;
         line-height: 98px;
@@ -588,7 +589,7 @@
           flex-direction: row-reverse;
         }
         &.h500{
-          padding: 250px 50px;
+          padding: 250px 50px 150px;
           margin: 0 96px 0px !important; 
           flex-direction: column;
           align-items: flex-end;
@@ -625,8 +626,12 @@
 
         }
         &-img{
-          padding: 1rem;
+          margin: 3rem 1rem;
+          height: 10rem;
           max-width: 50%;
+          background-repeat: no-repeat !important;
+          background-size: 100% 100% !important;
+          background-attachment: fixed !important;
           &.mob{
             display: none;
           }
@@ -947,6 +952,9 @@
           padding: 16px;
           display: none;
           &.mob{
+            height: auto;
+            padding: 1rem;
+            margin: unset;
             display: flex;
           }
         }

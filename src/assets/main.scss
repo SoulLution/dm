@@ -487,10 +487,11 @@
       position: absolute;
       right: 0;
       width: 70%;
-      height: 150%;
+      height: 35vw;
       background-color: $black_028;
       z-index: -1;
       transition: 0s;
+      overflow-y: visible;
       &:after{
         content: "";
         position: absolute;
@@ -547,6 +548,7 @@
       }
       &-input{
         width: auto;
+        white-space: nowrap;
         margin-bottom: 10px;
         &>div{
           position: absolute;
@@ -597,6 +599,7 @@
   .more{
     width: 90% !important;
     padding-left: unset;
+    padding-right: 1rem;
     justify-content: flex-start;
     &-img{
       position: absolute;
@@ -615,6 +618,7 @@
     flex-direction: column;
     transform: unset !important;
     align-items: flex-start;
+    padding: 0 1rem;
     &-bg{
       transform: rotate(-3deg);
       width: 80%;
@@ -633,11 +637,13 @@
       width: 100%;
       margin-top: 20%;
       &-bg{
-        width: 100%;
+        width: 90%;
+        min-height: 135%;
       }
       &-input{
         width: 70%;
         &>div{
+          font-size: 14px;
         }
         &>input{
           width: 100%;

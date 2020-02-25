@@ -36,9 +36,12 @@
             </div>
 			      <div class="body-section-row-text-rows" v-for="val in row.values">
 				      <div class="body-section-row-text-rows-title">{{val.first}}<div>{{val.div_f}}</div></div>
-				      <div class="body-section-row-text-rows-abouter">
+				      <div class="body-section-row-text-rows-abouter first">
 				      	<div v-for="prof in val.profs">{{prof}}</div>
 				      </div>
+              <div class="body-section-row-text-rows-abouter">
+                <div v-for="prof in val.profs">{{prof}}</div>
+              </div>
 			      </div>
 		      	<div class="body-section-row-text-title" v-if="row.title">{{row.title.first}}<div>{{row.title.div_f}}</div>{{row.title.second}}<div>{{row.title.div_s}}</div></div>
 		      	<div class="body-section-row-text-about" v-for="about in row.about" v-if="row.about">
@@ -282,7 +285,7 @@
       &-row{
       	flex-direction: row;
       	padding: 0 72px 0 calc(104px + 10%);
-      	margin: 182px;
+      	margin: 5rem 182px;
       	&-img{
       		width: 10%;
       		position: absolute;
@@ -305,6 +308,7 @@
 			        flex-direction: row;
 			        &>div{
 			        	width: auto;
+                overflow-wrap: wrap;
 			        	color: $yellow;
 			        	margin: 0 20px;
 			        }
@@ -316,10 +320,22 @@
 							font-weight: 500;
 							font-size: 17px;
 							line-height: 150%;
+              width: auto;
+              max-width: unset;
+              animation: mover 20s linear infinite;
 							justify-content: space-between;
+              &.first{
+                position: absolute;
+                left: -250%;
+                bottom: 0;
+                animation: mover 20s linear 10s infinite;
+              }
 			      	&>div{
+                margin-right: 10px;
 			      		width: auto;
-			      		white-space: nowrap;
+                align-items: flex-start;
+                text-align: left;
+                white-space: nowrap;
 			      	}
 			      }
 			    }
@@ -364,7 +380,7 @@
     }
   }
 
-   @media screen and (max-width: 668px){
+  @media screen and (max-width: 668px){
     .header{
       // height: auto;
       // margin-bottom: calc(35vw + 50px);
@@ -439,7 +455,12 @@
 			      	flex-direction: column;
 			      	margin-left: 16px;
 			      	align-items: flex-start;
+              animation: unset;
+              &.first{
+                display: none;
+              }
 			      	&>div{
+                white-space: normal;
 			      		&:before{
 			      			content: "";
 			      			position: absolute;
@@ -468,5 +489,11 @@
     		}
   		}
 		}
+  }
+
+  @keyframes mover {
+    from {left: -250%}
+    99% {display: none}
+    to {left: 250%}
   }
 </style>
