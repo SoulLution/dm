@@ -2,8 +2,8 @@
   <div class="main">
 
     <div class="pagination">
-      <div class="pagination-line" :style="{maxHeight: ((100 / 7) * (page - 1))  + '%'}"></div>
-      <div class="pagination-circle" :class="{'active': page >= i }" v-for="i in 8" @click="comeToElem('section-' + i, undefined, i===2 ? true : false)"></div>
+      <div class="pagination-line" :style="{maxHeight: ((100 / 6) * (page - 1))  + '%'}"></div>
+      <div class="pagination-circle" :class="{'active': page >= i }" v-for="i in 7" @click="comeToElem('section-' + i, undefined, i===2 ? true : false)"></div>
     </div>
 
     <div class="header" ref="section-1">
@@ -38,7 +38,7 @@
       </form>
 
       <div class="body-section" ref="section-3">
-        <div class="body-section-title">какие  задачи мы решаем?</div>
+        <div class="body-section-title">Какие  задачи мы решаем?</div>
 
         <div class="body-section-row" :class="{'reverse': i % 2 !== 0}" v-for="(task, i) in tasks">
           <div class="body-section-row-first">
@@ -58,7 +58,7 @@
       </div>
 
       <div class="body-section" ref="section-4">
-        <div class="body-section-title">СЕЙЧАС МЫ ПРОДВИГАЕМ И ПРОДАЕМ</div>
+        <div class="body-section-title">Сейчас мы продвигаем и продаем</div>
           <div class="body-section-row sale" :class="{'reverse': i % 2 !== 0}" v-for="(sale, i) in sales">
             <div class="body-section-row-img" :style="{backgroundImage: 'url(/static/img/image_' + i + '.png)'}"></div>
             <img class="body-section-row-img" :src="'static/img/sale_' + i + '.png'" style="display: none">
@@ -95,7 +95,7 @@
 
       <div class="body-section" ref="section-6">
 
-        <div class="body-section-title">МЫ ГОРДИМСЯ СВОЕЙ РАБОТОЙ </div>
+        <div class="body-section-title">Мы гордимся своей работой</div>
           <div class="body-section-row work" :class="{'reverse': i % 2 !== 0, 'h500': i === 1}" v-for="(work, i) in works">
             <img class="body-section-row-bg" :src="'static/img/work_' + i + '.png'" v-if="i !== 1">
             <div class="body-section-row-yellow">
@@ -142,7 +142,7 @@
         </div>
       </div>
 
-      <div class="body-section" ref="section-8">
+      <div class="body-section" ref="section-8" v-if="false">
 
         <div class="body-section-title __shadow">как мы работаем?</div>
         <div class="body-section-title __original">как мы работаем?</div>
@@ -318,7 +318,7 @@
     created(){
       window.onscroll = () => {
         let height = document.scrollingElement.clientHeight
-        for(let i = 8; i > 0 ; i--)
+        for(let i = 7; i > 0 ; i--)
           if(this.$refs['section-'+i]){
             let top = this.$refs['section-'+i].getBoundingClientRect().top
             let elem = top
@@ -340,11 +340,11 @@
           phone: this.modal1,
           _replyto: 'help@dm-development.kz'
         }
-        // data = this.toFormData(data);
+        data = this.changeData(data)
         this.$emit('popupsend', undefined)
         this.$axios
          .post(
-              "https://formspree.io/mzbgbolj",
+              "mail",
               data
          )
          .then(res => {
@@ -356,12 +356,12 @@
             this.$emit('popupsend', false)
          })
        },
-      toFormData(obj){
-        let formData = new FormData();
-        for(let key in obj) {
-            formData.append(key, obj[key]);
-        }
-        return formData;
+      changeData(data){
+        let formData = new FormData()
+        Object.keys(data).forEach(key => {
+          formData.append(key, data[key])
+        })
+        return formData
       },
       nextSlide(index){
         this.current_slide += index;
@@ -547,17 +547,21 @@
     &-section{
       margin: 100px 0;
       &-title{
+        display: block;
+        text-align: left;
         align-items: flex-start;
         width: calc(100% - 48px);
         margin: 0 24px 100px 24px;
         font-weight: 800;
         font-size: 80px;
         line-height: 98px;
-        text-align: left;
         text-transform: lowercase;
         color: transparent;
         -webkit-text-stroke: 1px $white;
         z-index: 1;
+        &::first-letter{
+          text-transform: uppercase;
+        }
         &.__reverse{
           position: absolute;
           z-index: 1;
@@ -565,10 +569,14 @@
           font-weight: 500;
           font-size: 50px;
           line-height: 59px;
-          left: -50px;
+          left: 0;
           margin: unset;
           width: auto;
           transform: rotate(-90deg);
+
+          &::first-letter{
+            text-transform: lowercase;
+          }
         }
         &.__shadow{
           position: absolute;
@@ -604,22 +612,25 @@
           margin: 0 5vw;
           &-title{
             font-weight: 800;
-            font-size: 50px;
-            line-height: 61px;
+            font-size: 66px;
+            line-height: 81px;
             align-items: flex-start;
-            margin-left: 15vw;
+            z-index: 1;
+            // margin-left: 15vw;
           }
           &-about{
             font-weight: bold;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 25px;
+            line-height: 150%;
             text-align: left;
             align-items: flex-start;
             margin: 50px 0;
+            z-index: 1;
           }
           &-more{
             height: 60px;
             width: auto;
+            z-index: 0;
           }
         }
         &-second{

@@ -11,7 +11,7 @@
       <div class="header-main">
         <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">Почему эффективнее передать отдел продаж и маркетинга на аутсорсинг? </div>
-        <div class="header-main-about"><img src="static/img/quotes.svg">- Экономия бюджета, сил и времени. <img src="static/img/quotes.svg"></div>
+        <div class="header-main-about"><img src="static/img/quotes.svg">Экономия бюджета, сил и времени. <img src="static/img/quotes.svg"></div>
         <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
         <div class="header-main-name">Вы платите только за результат в виде сделок. </div>
       </div>
@@ -27,20 +27,20 @@
 
 		      <div class="body-section-row-text">
             <div class="body-section-row-text-rows mob" v-for="val in row.values">
-              <div class="body-section-row-text-rows-title">{{val.first}}<div>{{val.div_f}}</div></div>
+              <div class="body-section-row-text-rows-title">{{val.first}}<span>{{val.div_f}}</span></div>
             </div>
             <div class="body-section-row-text-rows mob" v-for="val in row.values">
               <div class="body-section-row-text-rows-abouter">
                 <div v-for="prof in val.profs">{{prof}}</div>
               </div>
             </div>
-			      <div class="body-section-row-text-rows" v-for="val in row.values">
-				      <div class="body-section-row-text-rows-title">{{val.first}}<div>{{val.div_f}}</div></div>
+			      <div class="body-section-row-text-rows" v-for="(val, j) in row.values">
+				      <div class="body-section-row-text-rows-title">{{val.first}}<span>{{val.div_f}}</span></div>
 				      <div class="body-section-row-text-rows-abouter first">
 				      	<div v-for="prof in val.profs">{{prof}}</div>
 				      </div>
-              <div class="body-section-row-text-rows-abouter">
-                <div v-for="prof in val.profs">{{prof}}</div>
+              <div class="body-section-row-text-rows-abouter" :style="{ animationDirection: j % 2 === 0 ? 'reverse' : 'normal'}">
+                <div v-for="j in 2"><div v-for="prof in val.profs">{{prof}}</div></div>
               </div>
 			      </div>
 		      	<div class="body-section-row-text-title" v-if="row.title">{{row.title.first}}<div>{{row.title.div_f}}</div>{{row.title.second}}<div>{{row.title.div_s}}</div></div>
@@ -79,7 +79,7 @@
       				{
       					first: 'работают на',
       					div_f: 'ВАС,',
-      					profs: ['менеджеров CRM системы','диспетчеров call centre','экспертов по продажам','рукодителей отделов продаж ','администраторов офиса и специалистов службы поддержки клиентов.']
+      					profs: ['менеджеров CRM системы','диспетчеров call centre','экспертов по продажам','рукодителей отделов продаж ','администраторов офиса и специалистов службы поддержки клиентов']
       				},
       				{
       					first: 'оплачиваем ',
@@ -98,7 +98,7 @@
       				{
       					first: 'платите',
       					div_f: '',
-      					profs: ['разработку журналов и визуальных ','рекламных сообщений','программы для ведения клиентов ','съемки видеорекламы','аренду билбордов','оформление строительства','много чего другого.']
+      					profs: ['разработку журналов и визуальных ','рекламных сообщений','программы для ведения клиентов ','съемки видеорекламы','аренду билбордов','оформление строительства','много чего другого']
       				},
       				{
       					first: 'ежемесячно:',
@@ -298,7 +298,9 @@
               display: none;
             }
 			      &-title{
-			      	justify-content: flex-start;
+              display: block;
+			      	align-items: flex-start;
+              justify-content: flex-start;
 							font-weight: 800;
 							font-size: 100px;
 							line-height: 150%;
@@ -306,7 +308,7 @@
 			        color: transparent;
 			        text-align: left;
 			        flex-direction: row;
-			        &>div{
+			        &>span{
 			        	width: auto;
                 overflow-wrap: wrap;
 			        	color: $yellow;
@@ -314,26 +316,37 @@
 			        }
 			      }
 			      &-abouter{
-			      	width: calc(176px + 110%);
-			      	margin-left: calc(-5% - 176px);
+			      	// width: calc(176px + 110%);
+			      	margin-left: -182px;
 			      	flex-direction: row;
 							font-weight: 500;
-							font-size: 17px;
+							font-size: 37px;
 							line-height: 150%;
               width: auto;
               max-width: unset;
-              animation: mover 20s linear infinite;
 							justify-content: space-between;
+              animation: mover 17.5s linear infinite forwards;
               &.first{
-                position: absolute;
-                left: -250%;
+                display: none;
+                // position: absolute;
+                // left: -250%;
                 bottom: 0;
-                animation: mover 20s linear 10s infinite;
+                // animation: mover 20s linear 10s infinite;
               }
-			      	&>div{
+              &>div{
+                width: 100%;
+                max-width: unset;
+                flex-direction: row;
+                align-items: flex-start;
+                // margin-left: -450%; 
+                // position: absolute;
+                // animation: mover 20s linear infinite;
+                  // left: -100%;
+              }
+			      	&>div>div{
                 margin-right: 10px;
 			      		width: auto;
-                align-items: flex-start;
+                max-width: unset;
                 text-align: left;
                 white-space: nowrap;
 			      	}
@@ -492,8 +505,7 @@
   }
 
   @keyframes mover {
-    from {left: -250%}
-    99% {display: none}
-    to {left: 250%}
+    from {transform: translateX(-50%)}
+    to {transform: translateX(0%)}
   }
 </style>

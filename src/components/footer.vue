@@ -43,11 +43,11 @@
           phone: this.modal1,
           _replyto: 'help@dm-development.kz'
         }
-        // data = this.toFormData(data);
+        data = this.changeData(data)
         this.$emit('popupsend', undefined)
         this.$axios
          .post(
-              "https://formspree.io/mzbgbolj",
+              "mail.php",
               data
          )
          .then(res => {
@@ -60,12 +60,12 @@
          })
          return false
       },
-      toFormData(obj) {
-        let formData = new FormData();
-        for(let key in obj) {
-            formData.append(key, obj[key]);
-        }
-        return formData;
+      changeData(data){
+        let formData = new FormData()
+        Object.keys(data).forEach(key => {
+          formData.append(key, data[key])
+        })
+        return formData
       },
       changeForm(index){
         if(this['form'+index]) 

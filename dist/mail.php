@@ -2,26 +2,25 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-$to = 'help@dm-development.kz';
-
-$name = $_POST['name'];
+$to = $_POST['_replyto'];
+$fio = $_POST['name'];
 $phone = $_POST['phone'];
-
-$subject = 'Заявка с сайта DM.kz';
+$subject = 'Заявка с сайта dm-development.kz';
 
 $message = '
 <html>
 <head>
-  <title>Заявка с сайта <a href="http://dm-development.kz/">DM Development</a></title>
+  <title>Заявка с сайта <a href="http://dm-development.kz/">DM development</a></title>
 </head>
 <body>
-  <p>ФИО: '.$name.'</p>
+  <p>Заявка с сайта <a href="http://dm-development.kz/">DM development</a></p>
+  <p>ФИО: '.$fio.'</p>
   <p>Телефон:'.$phone.'</p>
 </body>
 </html>
 ';
 
-$headers = 'Content-type: text/html; charset=iso-8859-1'. "\r\n" .'From: <help@dm-development.kz>';
+$headers =  'MIME-Version: 1.0'. "\r\n" .'Content-type: text/html; charset=utf-8'. "\r\n" .'From: <info@dm-development.kz>';
 mail($to, $subject, $message);
 if(mail($to, $subject, $message, $headers))
 {

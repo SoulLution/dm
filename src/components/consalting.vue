@@ -11,7 +11,7 @@
       <div class="header-main">
         <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">Консалтинг. Мы предоставляем все услуги для Застройщиков: </div>
-        <div class="header-main-name">- от анализа «Что строить и где?»- нейминга нового ЖК и продвижения его выхода на рынок - до решения узких и специфических задач в виде внедрения автоматической системы  </div>
+        <div class="header-main-name">от анализа «Что строить и где?»- нейминга нового ЖК и продвижения его выхода на рынок - до решения узких и специфических задач в виде внедрения автоматической системы  </div>
         <div class="header-main-about"><img src="static/img/quotes.svg">Динамического ценообразования .  <img src="static/img/quotes.svg"></div>
         <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
       </div>
@@ -24,12 +24,16 @@
           <img class="body-section-row-min_img" src="static/img/0_sec.svg">
           
           <div class="body-section-row-abouter">
-            <div class="body-section-row-abouter-sentence" v-for="up in helpes.up"><div :class="{'bold': checkCaps(word)}" v-for="word in up">{{word}}</div></div>
+            <div v-for="j in 2">
+              <div class="body-section-row-abouter-sentence" v-for="up in helpes.up"><div :class="{'bold': checkCaps(word)}" v-for="word in up">{{word}}</div></div>
+            </div>
           </div>
           <div class="body-section-row-title"><div>{{helpes.title.div}}</div>{{helpes.title.second}}</div>
           
-          <div class="body-section-row-abouter">
-            <div class="body-section-row-abouter-sentence" v-for="down in helpes.down"><div :class="{'bold': checkCaps(word)}" v-for="word in down">{{word}}</div></div>
+          <div class="body-section-row-abouter" style="animation-direction: reverse">
+            <div v-for="j in 2">
+              <div class="body-section-row-abouter-sentence" v-for="down in helpes.down"><div :class="{'bold': checkCaps(word)}" v-for="word in down">{{word}}</div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -50,7 +54,7 @@
       <div class="body-section">
         <div class="body-section-title __yellow">
           <img class="body-section-title-img" src="static/img/gift.svg">
-          <div>Бонус</div> урок: 
+          <div>Приятный бонус</div> 
         </div>
         <div class="body-section-row text">
           <div class="plus_5" v-for="i in 5"></div>
@@ -93,7 +97,7 @@
       </div>
 
       <div class="body-section">
-        <div class="body-section-row" :class="{'reverse': i % 2 !== 0}" v-for="(task, i) in tasks">
+        <div class="body-section-row" v-if="false" :class="{'reverse': i % 2 !== 0}" v-for="(task, i) in tasks">
           <div class="body-section-row-first">
             <div class="body-section-row-first-title">{{task.title}}</div>
             <div class="body-section-row-first-about">{{task.about}}</div>
@@ -312,8 +316,11 @@
           &.__yellow{
             -webkit-text-stroke: 1px $yellow;
             &>div{
-              text-transform: uppercase;
+              display: block;
               color: $yellow;
+              &::first-letter{
+                text-transform: capitalize;
+              }
             }
           }
         }
@@ -447,8 +454,14 @@
           &-abouter{
             flex-direction: row;
             justify-content: space-between;
-            animation: mover 20s linear infinite;
+            animation: mover 25s linear infinite;
             width: auto;
+            max-width: unset;
+            &>div{
+              flex-direction: row;
+              justify-content: space-between;
+              max-width: unset;
+            }
             &:nth-child(4){
               margin-left: -50%;
             }
@@ -458,11 +471,9 @@
               font-weight: 500;
               font-size: 17px;
               line-height: 150%;
-              &:first-child{
-                margin-left: unset;
-              }
               &>div{
                 width: auto;
+                max-width: unset;
                 margin-left: 5px;
                 &:first-child{
                   margin-left: unset;
@@ -805,8 +816,7 @@
   }
 
   @keyframes mover {
-    from {left: -250%}
-    99% {display: none}
-    to {left: 170%}
+    from {transform: translateX(-50%)}
+    to {transform: translateX(0%)}
   }
 </style>
