@@ -844,13 +844,22 @@
         bottom: -35vw;
       }
       &-main{
+        &-row{
+          flex-direction: column;
+          justify-content: space-between;
+        }
         &-title{
           font-size: 32px;
           line-height: 39px;
         }
+        &-wave{
+          bottom: 0;
+        }
         &-about{
+          margin: 50% 0 25%;
           font-size: 16px;
           line-height: 150%;
+          width: 80%;
           &>div{
             &:first-child:after{
                 top: -4px;
