@@ -22,7 +22,7 @@
     <div class="body">
       
       <div class="body-section">
-	      <div class="body-section-row" v-for="(row, i) in data">
+	      <div class="body-section-row" :class="{'reverse': i % 2 !== 0}" v-for="(row, i) in data">
 		      <img class="body-section-row-img" :src="'static/img/' + i + '_sec.svg'">
 
 		      <div class="body-section-row-text">
@@ -284,10 +284,17 @@
       
       &-row{
       	flex-direction: row;
-      	padding: 0 72px 0 calc(104px + 10%);
+      	padding: 0 72px 0 calc(104px + 15%);
       	margin: 5rem 182px;
+        &.reverse{
+          padding: 0 calc(104px + 15%) 0 72px;
+         .body-section-row-img{
+          left: unset;
+          right: 72px;
+         } 
+        }
       	&-img{
-      		width: 10%;
+      		width: 15%;
       		position: absolute;
       		left: 72px;
       	}
@@ -374,14 +381,16 @@
 		        color: $white;
 		        flex-direction: row;
 						font-weight: 500;
-						font-size: 17px;
+						font-size: 32px;
 						line-height: 200%;
 						flex-wrap: wrap;
 						text-align: left;
 						justify-content: flex-start;
 		      	&>div{
+              text-align: left;
+              justify-content: flex-start;
 		      		width: auto;
-		      		margin: 0 8px; 
+		      		margin: 8px; 
 		      		color: $yellow;
 	      			&.bold{
 	      				font-size: 32px;
@@ -494,6 +503,7 @@
 	      		}
 	      	}
 	      	&-about{
+            font-size: 17px;
 	      		&>div{
 	      			text-align: left;
 	      			.bold{}

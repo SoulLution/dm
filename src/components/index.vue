@@ -10,10 +10,24 @@
       <div class="header-main">
         <img class="header-main-logo" src="static/img/logo.png">
         <div class="header-main-title">ВЫ строите, МЫ продвигаем и продаем. </div>
-        <div class="header-main-about">Мы находимся в <div>Алматы</div>, но работаем по всему Казахстану <div>удаленно,</div> или выезжая к клиенту в другой город. </div>
-        <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
 
+        <div class="header-main-row">
+          <form class="form head" @submint.prevent="sendEmail">
+            <div class="form-content">
+              <img class="form-content-bg" src="static/img/form.png">
+              <label for="i0" class="form-content-input" :class="{ 'active': form0 || modal0 }"><div>Как вас зовут?</div> <input autocomplete="off" required v-model="modal0" id="i0" @focus="changeForm(0)" @blur="changeForm(0)" type="text"></label>
+              <label for="i1" class="form-content-input" :class="{ 'active': form1 || modal1 }"><div>Ваш номер телефона</div> <input autocomplete="off" required v-model="modal1" id="i1" @focus="changeForm(1)" @blur="changeForm(1)" type="text"></label>
+              <label for="submit-0" class="button form-content-button">
+                <div class="button-bg"></div>
+                <input type="submit" id="submit-0" class="button-title" value="Получить консультацию" @click="sendEmail">
+              </label>
+            </div>
+          </form>
+          <div class="header-main-about">Мы находимся в <div>Алматы</div>, но работаем по всему Казахстану <div>удаленно,</div> или выезжая к клиенту в другой город. </div>
+          <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
+        </div>
       </div>
+
       <div class="header-sides"></div>
 
 
@@ -21,7 +35,7 @@
 
     <div class="body">
       
-      <form class="form"ref="section-2" @submint.prevent="sendEmail">
+     <!--  <form class="form"ref="section-2" @submint.prevent="sendEmail" v-if="false">
         <div class="form-bg"></div>
         <div class="form-title">Получите консультацию у специалистов нашей компании</div>
         <div class="form-arrow"></div>
@@ -34,8 +48,7 @@
             <input type="submit" id="submit-0" class="button-title" value="Получить консультацию" @click="sendEmail">
           </label>
         </div>
-        
-      </form>
+      </form> -->
 
       <div class="body-section" ref="section-3">
         <div class="body-section-title">Какие  задачи мы решаем?</div>
@@ -72,7 +85,7 @@
 
         <div class="body-section-title">Почему эффективнее передать отдел продаж и маркетинга на аутсорсинг?</div>
         <div class="body-section-row">
-          <div class="body-section-row-name quote"><img src="static/img/quotes.svg">- Экономия бюджета, сил и времени.<img src="static/img/quotes.svg"></div>
+          <div class="body-section-row-name quote"><img src="static/img/quotes.svg">Экономия бюджета, сил и времени.<img src="static/img/quotes.svg"></div>
         </div>
 
       </div>
@@ -97,7 +110,7 @@
 
         <div class="body-section-title">Мы гордимся своей работой</div>
           <div class="body-section-row work" :class="{'reverse': i % 2 !== 0, 'h500': i === 1}" v-for="(work, i) in works">
-            <img class="body-section-row-bg" :src="'static/img/work_' + i + '.png'" v-if="i !== 1">
+            <img class="body-section-row-bg" :src="'static/img/work_' + i + (i === 2 ? '.svg' : '.png')"v-if="i !== 1">
             <div class="body-section-row-yellow">
               <div class="body-section-row-yellow-title">{{work.title}}</div>
             <img class="body-section-row-bg" :src="'static/img/work_' + i + '.png'" v-if="i === 1">
@@ -123,8 +136,8 @@
               <div class="slider-slide-author">
                 <div class="slider-slide-author-ava"><img :src="comment.img"></div>
                 <div class="slider-slide-author-info">
-                  <div class="slider-slide-author-name">- {{comment.name}} </div>
-                  <div class="slider-slide-author-about">{{comment.who}}</div>
+                  <div class="slider-slide-author-info-name">- {{comment.name}} </div>
+                  <div class="slider-slide-author-info-about">{{comment.who}}</div>
                 </div>
               </div>
             </div>
@@ -234,12 +247,12 @@
         tasks: [
           {
             title: 'Аутсорсинг',
-            about: '- Берем на себя под ключ аналитику перед строительством, продвижение и продажу объектов жилой и коммерческой недвижимости',
+            about: 'Берем на себя под ключ аналитику перед строительством, продвижение и продажу объектов жилой и коммерческой недвижимости',
             link: '/outsource'
           },
           {
             title: 'Консалтинг',
-            about: '- Повышаем эффективность работы отделов  продаж и маркетинга застройщиков: аудит, обучение, реинжиниринг с внедрением цифровых технологий',
+            about: 'Повышаем эффективность работы отделов  продаж и маркетинга застройщиков: аудит, обучение, реинжиниринг с внедрением цифровых технологий',
             link: '/consalting'
           },
         ],
@@ -470,6 +483,12 @@
       background-color: $grey;
       justify-content: space-between;
       padding-top: 50px;
+      padding: 5% 0;
+      &-row{
+        flex-direction: row;
+        padding: 5% 12px 5% 12px;
+        fustify-content: space-between;
+      }
       &-logo{
         // margin-bottom: 50px;
       }
@@ -477,13 +496,13 @@
         font-weight: bold;
         font-size: 60px;
         line-height: 150%;
-        width: 90%;
+        width: calc(100% - 24px);
       }
       &-about{
         font-weight: bold;
         font-size: 24px;
         line-height: 29px;
-        width: 65%;
+        width: 50%;
         flex-direction: row;
         flex-wrap: wrap;
         &>div{
@@ -508,7 +527,8 @@
         }
       }
       &-wave{
-        margin-top: 2rem;
+        margin-top: calc(2rem + 45px);
+        position: absolute;
       }
     }
     &-sides{
@@ -599,7 +619,7 @@
         &.h500{
           padding: 250px 50px 150px;
           margin: 0 96px 0px !important; 
-          flex-direction: column;
+          flex-direction: row;
           align-items: flex-end;
         }
         &.work{
@@ -673,12 +693,22 @@
         }
         &:nth-child(2){
           .body-section-row-bg{
+
+            width: 100%;
+            height: 100%;
             position: absolute;
             left: 0;
           }
           .body-section-row-yellow{
             margin-top: 6%;
             max-width: 370px;
+          }
+        }
+
+        &:nth-child(4){
+          .body-section-row-bg{
+            width: 30%;
+            height: 50vh;
           }
         }
         &-yellow{
@@ -691,7 +721,7 @@
           &-title{
             color: $yellow;
             font-weight: 500;
-            font-size: 40px;
+            font-size: 66px;
             line-height: 47px;
             margin-bottom: 24px;
             align-items: flex-start;
@@ -700,7 +730,7 @@
           &-about{
             color: $yellow;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 28px;
             line-height: 150%;
             align-items: flex-start;
             text-align: left;
@@ -709,6 +739,8 @@
         &-nasa_img{
           position: absolute;
           width: 70%;
+          left: 0;
+          top: 20%;
         }
         &-nasa{
           // position: absolute;

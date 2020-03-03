@@ -387,6 +387,9 @@
           margin-left: 32px;
           &-name{
             font-weight: 500;
+            align-items: flex-start;
+            justify-content: flex-start;
+            text-align: left;
             font-size: 16px;
             line-height: 19px;
           }
@@ -483,6 +486,10 @@
     justify-content: space-between;
     margin: 156px 0;
     padding: 0 24px;
+    &.head{
+      margin: unset;
+      width: auto;
+    }
     &-bg{
       position: absolute;
       right: 0;
@@ -583,7 +590,9 @@
         }
       }
       &-button{
-        width: 60%;
+        width: auto;
+        padding: 0 12px;
+        // max-width: 60%;
         position: absolute;
         bottom: calc(-100% - 40px);
       }
