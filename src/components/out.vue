@@ -43,9 +43,9 @@
                 <div v-for="j in 2"><div v-for="prof in val.profs">{{prof}}</div></div>
               </div>
 			      </div>
-		      	<div class="body-section-row-text-title" v-if="row.title">{{row.title.first}}<div>{{row.title.div_f}}</div>{{row.title.second}}<div>{{row.title.div_s}}</div></div>
+		      	<div class="body-section-row-text-title" v-if="row.title">{{row.title.first}}<span>{{row.title.div_f}}</span>{{row.title.second}}<span>{{row.title.div_s}}</span></div>
 		      	<div class="body-section-row-text-about" v-for="about in row.about" v-if="row.about">
-		      		{{about.first}}<div :class="{'bold': about.caps}">{{about.div}}</div>{{about.second}}
+		      		{{about.first}}<span :class="{'bold': about.caps}">{{about.div}}</span>{{about.second}}
 		      	</div>
 		      </div>
 
@@ -92,7 +92,7 @@
       			values: [
       				{
       					first: 'Вы',
-      					div_f: 'НЕ',
+      					div_f: 'НЕ ',
       					profs: ['аренду офиса продаж','расходы на диджитал и офлайн рекламу','печать флаеров и каталогов','разработку журналов и визуальных','рекламных сообщений']
       				},
       				{
@@ -109,20 +109,20 @@
       		},
       		{
       			title: {
-      				first: 'Вы',
-      				div_f: 'фокусируетесь',
+      				first: 'Вы ',
+      				div_f: ' фокусируетесь ',
       				second: 'на главном-',
-      				div_s: 'строительстве.'
+      				div_s: ' строительстве. '
       			},
       			about: [
       				{ 
       					first: 'Мы передаем',
-      					div: 'ВАМ',
+      					div: ' ВАМ ',
       					second: 'все данные, чтобы вы проектировали ликвидные'
       				},
       				{
       					first: 'планировочные решения, находим для',
-      					div: 'ВАС',
+      					div: ' ВАС ',
       					second: 'лучшие МАФы по цене и'
       				},
       				{
@@ -135,15 +135,15 @@
       		},
       		{
       			title: {
-      				first: 'Также Вы',
-      				div_f: 'НЕ',
+      				first: 'Также Вы ',
+      				div_f: ' НЕ ',
       				second: 'проводите:',
       				div_s: ''
       			},
       			about: [
       				{
       					first: '',
-      					div: 'ежедневные',
+      					div: 'ежедневные ',
       					second: 'пятиминутки с отделом продаж'
       				},
       				{
@@ -153,12 +153,12 @@
       				},
       				{
       					first: '',
-      					div: 'стратегические и тактические сессии',
+      					div: 'стратегические и тактические сессии ',
       					second: 'с департаментом развития и маркетинга'
       				},
       				{
       					first: '',
-      					div: 'еженедельное',
+      					div: 'еженедельное ',
       					second: 'обучение сотрудников.'
       				}
       			],
@@ -174,25 +174,25 @@
       			about: [ 
       				{
       					first: '-',
-      					div: 'НЕ',
+      					div: 'НЕ ',
       					caps: true,
       					second: 'мотивируете каждый день всех сотрудников'
       				},
       				{
       					first: '-',
-      					div: 'НЕ',
+      					div: 'НЕ ',
       					caps: true,
       					second: 'помогаете им решить их проблемы '
       				},
       				{
       					first: '-',
-      					div: 'НЕ',
+      					div: 'НЕ ',
       					caps: true,
       					second: 'тратите время на '
       				},
       				{
       					first: '',
-      					div: 'поиск-обучение-внедрение в команду-наставничество-курирование',
+      					div: 'поиск-обучение-внедрение в команду-наставничество-курирование ',
       					second: 'новых сотрудников.'
       				}
       			],
@@ -360,6 +360,7 @@
 			      }
 			    }
 	      	&-title{
+            display: block;
 		        -webkit-text-stroke: 1px $yellow;
 		        color: transparent;
 		        flex-direction: row;
@@ -386,11 +387,12 @@
 						flex-wrap: wrap;
 						text-align: left;
 						justify-content: flex-start;
-		      	&>div{
+            display: block;
+		      	&>span{
               text-align: left;
               justify-content: flex-start;
 		      		width: auto;
-		      		margin: 8px; 
+		      		// margin: 8px; 
 		      		color: $yellow;
 	      			&.bold{
 	      				font-size: 32px;
@@ -447,12 +449,11 @@
 
     .body-section{
       &-row{
-      	padding: 0 5%;
+      	padding: 0 5% !important;
       	margin: unset;
       	margin-top: 25%;
       	&:first-child{
 	      	margin-top: 5%;
-
       	}
 	      &-img{
 	      	width: 20%;
@@ -483,13 +484,17 @@
               }
 			      	&>div{
                 white-space: normal;
+                font-size: 20px;
+                text-align: left;
+                justify-content: flex-start;
 			      		&:before{
 			      			content: "";
 			      			position: absolute;
 			      			width: 12px;
 			      			height: 1px;
 			      			background-color: $white;
-			      			left: -15px;
+                  top: 27px;
+			      			left: -17.5px;
 			      		}
 			      	}
 			      }

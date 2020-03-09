@@ -299,6 +299,7 @@
       left: 0;
         
         &-title{
+          display: block;
           justify-content: flex-start;
           font-weight: 800;
           margin-left: 48px;
@@ -309,6 +310,9 @@
           text-align: left;
           text-transform: lowercase;
           flex-direction: row;
+          &:first-letter{
+            text-transform: uppercase;
+          }
           &-img{
             // margin-top: -40px;
           }
@@ -318,8 +322,10 @@
             margin: 0 20px;
           }
           &.__yellow{
+            display: block;
             flex-direction: row;
             flex-wrap: nowrap;
+            overflow-wrap: nowrap;
             -webkit-text-stroke: 1px $yellow;
             &>div{
               display: block;
@@ -689,6 +695,11 @@
         flex-wrap: wrap;
         &>img{
           width: 30%;
+        }
+        &.__yellow{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       }
       &-row{
