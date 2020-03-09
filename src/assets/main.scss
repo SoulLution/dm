@@ -376,11 +376,12 @@
           max-height: 100px;
           min-width: 100px;
           max-width: 100px;
-          background-color: $black;
+          overflow: hidden;
+          // background-color: $black;
           &>img{
             height: 100%;
             width: 100%;
-            display: none;
+            // display: none;
           }
         }
         &-info{
@@ -628,6 +629,7 @@
     transform: unset !important;
     align-items: flex-start;
     padding: 0 1rem;
+    margin-top: 0;
     &-bg{
       transform: rotate(-3deg);
       width: 80%;

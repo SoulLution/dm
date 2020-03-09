@@ -40,7 +40,7 @@
 
 
       <div class="body-section">
-        <div class="body-section-title">Программа курса ДМ скул: </div>
+        <div class="body-section-title">Мы обучим ваших сотрудников отдела продаж:</div>
         <div class="body-section-row programm" :class="{'reverse': i % 2 !== 0}" v-for="(program, i) in programs">
           <div class="body-section-row-about">
             <div class="body-section-row-about-quotes"><img src="static/img/quotes.svg">{{program.quote}}<img src="static/img/quotes.svg"></div>
@@ -245,12 +245,16 @@
         // margin-bottom: 50px;
       }
       &-title{
+        display: block;
         font-weight: bold;
         font-size: 60px;
         line-height: 150%;
         width: 90%;
         -webkit-text-stroke: 1px $white;
         color: transparent;
+        &:first-letter{
+          text-transform: uppercase;
+        }
       }
       &-about{
         width: auto;

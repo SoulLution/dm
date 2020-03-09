@@ -16,7 +16,7 @@
       
     </form>
 
-    <a href="tel:87070000092" class="footer-phone">8 707 000 00 92 </a>
+    <a href="tel:87005020505" class="footer-phone">8 700 502 05 05</a>
     <a href="mailto:help@dm-development.kz" class="footer-mail">help@dm-development.kz</a>
     <div class="footer-address">
       <img src="static/img/address.svg">

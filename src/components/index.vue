@@ -23,7 +23,7 @@
               </label>
             </div>
           </form>
-          <div class="header-main-about">Мы находимся в <div>Алматы</div>, но работаем по всему Казахстану <div>удаленно,</div> или выезжая к клиенту в другой город. </div>
+          <div class="header-main-about">Мы находимся в <span>Алматы,</span> но работаем по всему Казахстану <span>удаленно,</span> или выезжая к клиенту в другой город. </div>
           <div class="wave header-main-wave"><div v-for="i in 4"></div></div>
         </div>
       </div>
@@ -134,7 +134,7 @@
                 <div>{{comment.text}}</div>
                 <img src="static/img/quotes.svg"></div>
               <div class="slider-slide-author">
-                <div class="slider-slide-author-ava"><img :src="comment.img"></div>
+                <div class="slider-slide-author-ava"><img :src="'static/img/' + comment.img"></div>
                 <div class="slider-slide-author-info">
                   <div class="slider-slide-author-info-name">- {{comment.name}} </div>
                   <div class="slider-slide-author-info-about">{{comment.who}}</div>
@@ -196,50 +196,32 @@
         top: 0,
         comments: [
           {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            img: 'isg.png',
+            text: 'Мы начали работу с компаний «DM Development»  в мае 2018 года. Уже в первый месяц сотрудничества,  компания «DM Development» увеличила продажи в 10 раз.  Мы полностью передали на аутсорсинг  отдел продаж и маркетинга, с правом эксклюзива. Специалисты компании самостоятельно занимаются брендингом нашей строительной компании ISG, ведут все наши социальные сети, привлекают покупателей, размещают рекламу как в социальных сетях, так и офлайн. Благодаря нашему партнерству мы полностью освобождены от административной рутинной работы, связанной с продажами и сфокусированы только на процессе строительства. Специалисты «DM Development»  помогают нам проектировать то, в чем нуждается рынок. Инициируют акции и мероприятия. Следят за нашей репутацией и работают во благо нашей компании. Вместе с компаний «DM Development» растет число наших клиентов, мы развиваем новые проекты и планируем масштабироваться в регионы.',
             name: 'Каирбулат Жангалиев',
             who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
           },
           {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            img: 'ark.png',
+            text: 'Мы рады сотрудничеству  с компанией «DM Development» в рамках строительства клубного жилого дома в Атырау. «DM Development» взяли на себя брендинг как и строительной компании в целом, собрав портфолио, открыв профили в социальных сетях и ежедневно  выкладывая контент. Так и брендинг нового ЖК: презентации, квартирные листы, печатные материалы. Мы передали «DM Development» отдел продаж на правах эксклюзива, это очень удобно. Не нужно было искать команду специалистов, обучать их и ежедневно отслеживать работу сотрудников. Мы получили под ключ готовый отдел продаж с квалифицированными экспертами по продаже недвижимости. «DM Development»  ежемесячно работают на новыми рекламные решениями, устраивают онлайн конкурсы, увеличивают количество упоминаний о нашем ЖК, ведут все рекламные кампании в интернете, устанавливают промо стойки в местах скопления людей и работают над конверсией. Работа в отеле продаж «DM Development»  автоматизирована благодаря новым технологиям, которые они постоянно совершенствуют.',
+            name: 'Болатбек Тажигул',
+            who: 'Генеральный директор строительной компании «Arkantor»'
+          },
+          {
+            img: 'isg.png',
+            text: 'Мы начали работу с компаний «DM Development»  в мае 2018 года. Уже в первый месяц сотрудничества,  компания «DM Development» увеличила продажи в 10 раз.  Мы полностью передали на аутсорсинг  отдел продаж и маркетинга, с правом эксклюзива. Специалисты компании самостоятельно занимаются брендингом нашей строительной компании ISG, ведут все наши социальные сети, привлекают покупателей, размещают рекламу как в социальных сетях, так и офлайн. Благодаря нашему партнерству мы полностью освобождены от административной рутинной работы, связанной с продажами и сфокусированы только на процессе строительства. Специалисты «DM Development»  помогают нам проектировать то, в чем нуждается рынок. Инициируют акции и мероприятия. Следят за нашей репутацией и работают во благо нашей компании. Вместе с компаний «DM Development» растет число наших клиентов, мы развиваем новые проекты и планируем масштабироваться в регионы.',
             name: 'Каирбулат Жангалиев',
             who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
           },
           {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            name: 'Каирбулат Жангалиев',
-            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
+            img: 'ark.png',
+            text: 'Мы рады сотрудничеству  с компанией «DM Development» в рамках строительства клубного жилого дома в Атырау. «DM Development» взяли на себя брендинг как и строительной компании в целом, собрав портфолио, открыв профили в социальных сетях и ежедневно  выкладывая контент. Так и брендинг нового ЖК: презентации, квартирные листы, печатные материалы. Мы передали «DM Development» отдел продаж на правах эксклюзива, это очень удобно. Не нужно было искать команду специалистов, обучать их и ежедневно отслеживать работу сотрудников. Мы получили под ключ готовый отдел продаж с квалифицированными экспертами по продаже недвижимости. «DM Development»  ежемесячно работают на новыми рекламные решениями, устраивают онлайн конкурсы, увеличивают количество упоминаний о нашем ЖК, ведут все рекламные кампании в интернете, устанавливают промо стойки в местах скопления людей и работают над конверсией. Работа в отеле продаж «DM Development»  автоматизирована благодаря новым технологиям, которые они постоянно совершенствуют.',
+            name: 'Болатбек Тажигул',
+            who: 'Генеральный директор строительной компании «Arkantor»'
           },
           {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            name: 'Каирбулат Жангалиев',
-            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
-          },
-          {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            name: 'Каирбулат Жангалиев',
-            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
-          },
-          {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            name: 'Каирбулат Жангалиев',
-            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
-          },
-          {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            name: 'Каирбулат Жангалиев',
-            who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
-          },
-          {
-            img: '',
-            text: 'dsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaadsaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            img: 'isg.png',
+            text: 'Мы начали работу с компаний «DM Development»  в мае 2018 года. Уже в первый месяц сотрудничества,  компания «DM Development» увеличила продажи в 10 раз.  Мы полностью передали на аутсорсинг  отдел продаж и маркетинга, с правом эксклюзива. Специалисты компании самостоятельно занимаются брендингом нашей строительной компании ISG, ведут все наши социальные сети, привлекают покупателей, размещают рекламу как в социальных сетях, так и офлайн. Благодаря нашему партнерству мы полностью освобождены от административной рутинной работы, связанной с продажами и сфокусированы только на процессе строительства. Специалисты «DM Development»  помогают нам проектировать то, в чем нуждается рынок. Инициируют акции и мероприятия. Следят за нашей репутацией и работают во благо нашей компании. Вместе с компаний «DM Development» растет число наших клиентов, мы развиваем новые проекты и планируем масштабироваться в регионы.',
             name: 'Каирбулат Жангалиев',
             who: 'Генеральный директор строительной компании «Integrated Solutions Group»'
           },
@@ -505,18 +487,19 @@
         width: 50%;
         flex-direction: row;
         flex-wrap: wrap;
-        &>div{
+        &>span{
           margin: 0 5px;
           width: auto;
-
-            &:nth-child(1):after{
-              transform: rotate(180deg);
-              left: 25%;
-              top: -4px;
-              animation-delay: 0.9s;
-            }
+          position: relative;
+          &:nth-child(1):after{
+            transform: rotate(180deg);
+            left: 25%;
+            top: -4px;
+            animation-delay: 0.9s;
+          }
           &:after{
             content: "";
+            left: calc(50% - 10px);
             position: absolute;
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
@@ -565,7 +548,7 @@
   .body{
     z-index: 0;
     &-section{
-      margin: 100px 0;
+      margin: 0 0 100px 0;
       &-title{
         display: block;
         text-align: left;
@@ -859,7 +842,7 @@
           margin: 50% 0 25%;
           font-size: 16px;
           line-height: 150%;
-          width: 80%;
+          width: 100%;
           &>div{
             &:first-child:after{
                 top: -4px;
@@ -892,6 +875,7 @@
           position: relative;
           transform: unset;
           left: -25%;
+          margin-left: 12px;
         }
       }
       &-row.reverse{
@@ -900,13 +884,14 @@
         }
       }
       &-row, &-row.reverse{
+        padding: 12px;
         flex-direction: column;
         &:nth-child(2) .body-section-row-bg{
           left: unset;
         }
         &.sale{
           flex-direction: row;
-          margin: 25px 0;
+          margin: 0;
         }
         &.work{
           margin: unset;
