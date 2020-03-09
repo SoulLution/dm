@@ -318,9 +318,12 @@
             margin: 0 20px;
           }
           &.__yellow{
+            flex-direction: row;
+            flex-wrap: nowrap;
             -webkit-text-stroke: 1px $yellow;
             &>div{
               display: block;
+              width: auto;
               color: $yellow;
               &::first-letter{
                 text-transform: capitalize;
@@ -794,6 +797,10 @@
           align-items: flex-start;
           justify-content: flex-start;
           animation: unset;
+
+          &>div{
+            flex-direction: column;
+          }
           &-sentence{
             align-items: flex-start;
             justify-content: flex-start;
